@@ -188,7 +188,7 @@ img_actor = readPNG(paste("cleandata/",gsub(" ","",actor),".png",sep=""))
 img_graph = readPNG("tmp.png")
 
 # Create Plot.
-png(paste("output/",gsub(" ","",actor),".png"), width=w+3*spacing, height=h+2*spacing, units="in", res=200)
+png(paste("output/",gsub(" ","",actor),".png",sep=""), width=w+3*spacing, height=h+2*spacing, units="in", res=200)
 par(mar=c(0,0,0,0))
 plot(NA, xlim=c(0,w+3*spacing), ylim=c(0,h+2*spacing), xaxt="n", yaxt="n", bty="n", axes=0, xaxs='i', yaxs='i')
 
