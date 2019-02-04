@@ -80,14 +80,14 @@ def get_raw_data(actor_name):
 
     df = pd.DataFrame(all_entries)
     df = df[['title', 'year', 'rating', 'votes', 'metascore', 'genres', 'budget', 'gross', 'plot outline']]
-    df.to_csv('RawData/'+actor_name.replace(" ", "")+".csv", index=None)
+    df.to_csv('rawdata/'+actor_name.replace(" ", "")+".csv", index=None)
     return
 
 
 def clean_data(actor_name):
 
     # Read data into pandas data frame.
-    df = pd.read_csv('RawData/'+actor_name.replace(" ","")+".csv", sep=",")
+    df = pd.read_csv('rawdata/'+actor_name.replace(" ","")+".csv", sep=",")
 
     # Remove dollar signs and million/billion text.
     budget = [x.replace("$","").replace("million","").replace("billion","") for x in df['budget']]
@@ -107,21 +107,12 @@ def clean_data(actor_name):
     # Update date frame and save to cleaned data folder.
     df['budget']=budget
     df['gross']=gross
-    df.to_csv('CleanData/'+actor_name.replace(" ", "")+".csv", sep=",", header=True, index=None)
+    df.to_csv('cleandata/'+actor_name.replace(" ", "")+".csv", sep=",", header=True, index=None)
     return
 
 
-# Actor we wish to get data for.
-actor = 'Owen Wilson'
-
-# First, get raw data and save to csv file using pandas data frame.
-get_raw_data(actor)
+def get_photo(actor_name):
+    pic_url = wp.page(actor+' filmography').images[1]
+    urllib.request.urlretrieve(pic_url,actor.replace(" ",""))
 
 
-# After data has been checked for misplaced commas that create additional columns, use this
-# function to clean data.
-#clean_data(actor)
-
-# Also, download photo of actor.
-pic_url = wp.page(actor+' filmography').images[1]
-urllib.request.urlretrieve(pic_url,actor.replace(" ",""))

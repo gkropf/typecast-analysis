@@ -6,8 +6,7 @@ library(png)
 
 
 # Actor we wish to create profile overview for, and the score we want to measure them against.
-actor = "Tom Cruise"
-measure = 'gross'
+plot_filmography = function(actor, measure="gross"){
 raw_score = FALSE
 
 # Read in data file.
@@ -80,9 +79,6 @@ lim3=1
 }
 
 
-
-
-
 # Create consistent color pallete and factors
 cols = brewer.pal(num_genre_nodes, "BrBG")
 col_fact = factor(cols)
@@ -137,7 +133,6 @@ p = geom_label(data=gen_lab_data, aes(x=x, y=y, label=labs), fill="grey88", alph
 actor_graph = actor_graph + p
 
 
-
 # Add score rectangles if user did not wish to use raw scores.
 if (!raw_score){
 x1=rep(3,nbin)-.06
@@ -173,22 +168,89 @@ actor_graph = actor_graph+theme(legend.position="none", axis.title.x=element_bla
                                 axis.text.y=element_blank(),
                                 axis.ticks.y=element_blank(),
                                 axis.title.y=element_blank())
+actor_graph = actor_graph+theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
 h=4.5
-ggsave("tmp.png", plot = actor_graph, width=2.2*h, height=h, dpi=120, units="in")
+w=2.5*h
+ggsave("tmp.png", plot = actor_graph, width=w, height=h, dpi=300, units="in")
+
+ 
+# Add picture of actor to the figure. We want to avoid using magick as it is not a common packge
+# of most R users.
+
+# Set parameters
+spacing=.09
+perc1=.7
+perc2=.2
+w=w/.8
+
+# Read in image
+img_actor = readPNG(paste("cleandata/",gsub(" ","",actor),".png",sep=""))
+img_graph = readPNG("tmp.png")
+
+# Create Plot.
+png(paste("output/",gsub(" ","",actor),".png"), width=w+3*spacing, height=h+2*spacing, units="in", res=200)
+par(mar=c(0,0,0,0))
+plot(NA, xlim=c(0,w+3*spacing), ylim=c(0,h+2*spacing), xaxt="n", yaxt="n", bty="n", axes=0, xaxs='i', yaxs='i')
+
+# Add actors photo
+x_start=spacing
+x_end=perc2*w
+y_start=h+spacing-perc1*h
+y_end=h+spacing
+rasterImage(img_actor,x_start,y_start,x_end,y_end)
+
+# Add genre network plot
+x_start=w*perc2+spacing
+x_end=w+2*spacing
+y_start=spacing
+y_end=h+spacing
+rasterImage(img_graph,x_start,y_start,x_end,y_end)
+
+# Add descriptive text
+text(bquote(underline(bold(.(actor)))),x=.5*perc2*w+spacing, y=.94*(1-perc1)*h, font=1, cex=1.2)
+
+tot_rev = round(sum(na.omit(actor_data[,'gross']))/(10**9),2)
+lab=paste("Gross Box Office: ",toString(tot_rev)," billion over ",toString(n)," films.",sep="")
+text(lab,x=.5*perc2*w+.5*spacing, y=.7*(1-perc1)*h, font=3, cex=.8)
+
+main_genre = which(colSums(genre_ind)==max(colSums(genre_ind)))
+lab=paste("Main film genre is ",tolower(genre_levels[main_genre]),".","")
+text(lab,x=.5*perc2*w+.5*spacing, y=.45*(1-perc1)*h, font=3, cex=.8)
+
+num_out = n-max(colSums(genre_ind))
+lab = paste("Starred in ",num_out," films outside of main genre.","")
+text(lab,x=.5*perc2*w+.5*spacing, y=.30*(1-perc1)*h, font=3, cex=.8)
+dev.off()
+actor_graph
+}
 
 
 
-# Add picture of actor.
-#img = image_read("cleandata/OwenWilson.png")
 
 
 
 
 
 
-# Add movie labels
-#x=rep(1-.4,num_film_nodes)
-#y=film_y
-#gen_lab_data = data.frame("x"=x, "y"=y, "labs"=actor_data[1:num_film_nodes,'title'])
-#p=annotate("text", x=x, y=film_y, label=actor_data[1:num_film_nodes,'title'], hjust=0)
-#actor_graph = actor_graph + p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
