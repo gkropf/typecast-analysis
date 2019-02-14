@@ -5,7 +5,7 @@ This project is designed to illustrate how typec
 ![alt text](output/TomCruise.png "")
 
 ## Usage
-To recreate the results shown above for any actor; first download the repository zip file, extract it, and then navigate your terminal to the main folder. The data can then be gathered from Wikipedia and IMDB using the included python script. Simply open a python terminal and execute the following commands:
+To recreate the results shown above, for any actor, download the repository zip file, extract it, and then navigate your terminal to the main folder. The data can then be gathered from Wikipedia and IMDB using the included python script. Simply open a python terminal and execute the following commands:
 ````
 from RetrieveData import *
 get_raw_data('Tom Cruise')
