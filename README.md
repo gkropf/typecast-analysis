@@ -1,6 +1,7 @@
 # typecast-analysis
-The goal of this project was to create instant snapshots of actors entire filmographies that illustrate how varied their roles have been, how successful their roles from each genre have been, and how well their films have performed at box offices overall.
+The goal of this project was to create instant snapshots of actors entire filmographies that illustrate how varied their roles have been, how successful their roles from each genre have been, and how well their films have performed at box offices overall. A kind of extended bipartite graph was ultimately chosen so as to avoid complex legends created by overlaid bar plots or various other means of displaying multidimensional data.
 
+## Examples
 ![alt text](output/OwenWilson.png "")
 ![alt text](output/TomCruise.png "")
 
@@ -17,6 +18,6 @@ This will create a file in the *cleandata* folder that is appropriately formatte
 source('CreateProfile.r')
 plot_filmography('Tom Cruise')
 ````
-### Known Bugs ###
+### Known Bugs
 The infobox data that is collected from Wikipedia's web pages can often contain odd formatting characters, this will cause the *clean_data* command to fail. I am working on expanding the *clean_data* function's ability to handle edge cases so that the user will not have to do any formatting corrections themselves. For now, it is advisable to check the outputted file from *get_raw_data* (located at rawdata/actorname.csv) and delete misaligned rows before executing the *clean_data* command. 
 
