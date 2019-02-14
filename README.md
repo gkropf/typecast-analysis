@@ -1,5 +1,5 @@
 # typecast-analysis
-This project is designed to illustrate how typec
+The goal of this project was to create instant snapshots of actors entire filmographies that illustrate how varied their roles have been, how successful their roles from each genre have been, and how well their films have performed at box offices overall.
 
 ![alt text](output/OwenWilson.png "")
 ![alt text](output/TomCruise.png "")
