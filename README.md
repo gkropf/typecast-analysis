@@ -10,6 +10,7 @@ To recreate the results shown above for any actor; first download the repository
 from RetrieveData import *
 get_raw_data('Tom Cruise')
 clean_data('Tom Cruise')
+get_photo('Tom Cruise')
 ````
 This will create a file in the *cleandata* folder that is appropriately formatted for our plotting function. To then produce the extended bipartite filmography graph, open an R terminal and execute the following commands:
 ````
