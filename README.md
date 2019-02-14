@@ -16,5 +16,6 @@ This will create a file in the *cleandata* folder that is appropriately formatte
 source('CreateProfile.r')
 plot_filmography('Tom Cruise')
 ````
-
+### Known Bugs ###
+The infobox data that is collected from Wikipedia's web pages can often contain odd formatting characters, this will cause the clean_data command to fail. I am working on expanding the clean_data functions ability to handle edge cases so that the user will not have to do any formatting corrections themselves. For now, it is advisable to check the outputted file from get_raw_data (*located at rawdata/actorname.csv*) and delete misaligned rows before executing the clean_data command. 
 
