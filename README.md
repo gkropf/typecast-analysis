@@ -12,4 +12,6 @@ get_raw_data('John Travolta')
 clean_data('John Travolta')
 get_photo('John Travolta')
 ````
-This will 
+*'John Travolta' can be replaced with the name of any actor whos filmography is available on IMDB.*
+
+This will bg 
