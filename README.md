@@ -1,5 +1,5 @@
 # typecast-analysis
-The goal of this project was to create instant snapshots of actors entire filmographies that illustrate how varied their roles have been, how successful their roles from each genre have been, and how well their films have performed at box offices overall. A kind of extended bipartite graph was ultimately chosen so as to avoid complex legends created by overlaid bar plots or various other means of displaying multidimensional data.
+The goal of this project was to create instant snapshots of actors entire filmographies that illustrate how varied their roles have been, how successful their roles from each genre have been, and how well their films have performed at box offices overall. A kind of extended bipartite graph was ultimately chosen so as to avoid complex legends created by overlaid bar plots or various other means of displaying multidimensional data. *This was largely a personal endeavor to settle family arguments over who are the most versatile actors. And learn the advanced features of ggplot2 in the process.*
 
 
 
