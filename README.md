@@ -4,7 +4,7 @@ The goal of this project was to create instant snapshots of actors entire filmog
 
 
 ## Examples
-For Tom Cruise, we can see that most of his films are from the thriller/adventure/action genres with a modest amount of films from the romance and drama genres. He has largely ignored films focused in comedy, sci-fi, fantasy, mystery, and horror. Additionally, we can see that every one of his highest performing films (458-791m) are from the thriller/adventure/action genres. And, every one of his worst performing films is from the romance, drama, or comedy genres. While Tom Cruise has attempted to branch out, his fans seem to only enjoy his distinct portrayal of the confident brute protagonist characterized by his classic portrayal of Maverick in Top Gun.
+For Tom Cruise, we can see that most of his films are from the thriller/adventure/action genres with a modest amount of films from the romance and drama genres. He has largely ignored films focused in comedy, sci-fi, fantasy, mystery, and horror. Additionally, we can see that every one of his highest performing films (458-791m) are from the thriller/adventure/action genres. And, every one of his worst performing films is from the romance, drama, or comedy genres. While Tom Cruise has attempted to branch out, his fans seem to only enjoy his distinct portrayal of the charming and quick-thinking protagonist characterized by his classic portrayal of Maverick in Top Gun.
 ![alt text](output/TomCruise.png "")
 
 
