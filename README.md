@@ -1,9 +1,14 @@
 # typecast-analysis
 The goal of this project was to create instant snapshots of actors entire filmographies that illustrate how varied their roles have been, how successful their roles from each genre have been, and how well their films have performed at box offices overall. A kind of extended bipartite graph was ultimately chosen so as to avoid complex legends created by overlaid bar plots or various other means of displaying multidimensional data.
 
+
+
 ## Examples
-![alt text](output/OwenWilson.png "")
+For Tom Cruise, we can see that most of his films are from the thriller/adventure/action genres with a modest amount of films from the romance and drama genres. He has largely ignored films focused in comedy, sci-fi, fantasy, mystery, and horror. Additionally, we can see that every one of his highest performing films (458-791m) are from the thriller/adventure/action genres. And, every one of his worst performing films is from the romance, drama, or comedy genres. While Tom Cruise has attempted to branch out, his fans seem to only enjoy his distinct portrayal of the confident brute protagonist characterized by his classic portrayal of Maverick in Top Gun.
 ![alt text](output/TomCruise.png "")
+
+
+![alt text](output/OwenWilson.png "")
 
 ## Usage
 To recreate the results shown above, for any actor, download the repository zip file, extract it, and then navigate your terminal to the main folder. The data can then be gathered from Wikipedia and IMDB using the included python script. Simply open a python terminal and execute the following commands:
