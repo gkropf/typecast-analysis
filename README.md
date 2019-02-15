@@ -14,7 +14,7 @@ For Tom Cruise, we can see that most of his films are from the thriller/adventur
 
 Owen Wilson is one actor who is oft described as simply playing himself in most films. This is perfectly captured in the illustration below where we can see that while many of his movies span multiple genres, 40 out of 47 of his films are centered in comedy.
 
-![alt text](output/OwenWilson.png "")
+![alt text](output/OwenWilson.png? "")
 
 ## Usage
 To recreate the results shown above, for any actor, download the repository zip file, extract it, and then navigate your terminal to the main folder. The data can then be gathered from Wikipedia and IMDB using the included python script. Simply open a python terminal and execute the following commands:
