@@ -189,8 +189,16 @@ img_graph = readPNG("tmp.png")
 
 # Create Plot.
 png(paste("output/",gsub(" ","",actor),".png",sep=""), width=w+3*spacing, height=h+2*spacing, units="in", res=200)
+
 par(mar=c(0,0,0,0))
 plot(NA, xlim=c(0,w+3*spacing), ylim=c(0,h+2*spacing), xaxt="n", yaxt="n", bty="n", axes=0, xaxs='i', yaxs='i')
+
+# Add border
+black_image = array(c(0,0,0), dim=c(1,1,3))
+white_image = array(c(1,1,1), dim=c(1,1,3))
+boarder_w = .2*spacing
+rasterImage(black_image, 0, 0, w+3*spacing, h+2*spacing)
+rasterImage(white_image, boarder_w, boarder_w, w+3*spacing-boarder_w, h+2*spacing-boarder_w)
 
 # Add actors photo
 x_start=spacing
@@ -205,6 +213,7 @@ x_end=w+2*spacing
 y_start=spacing
 y_end=h+spacing
 rasterImage(img_graph,x_start,y_start,x_end,y_end)
+
 
 # Add descriptive text
 text(bquote(underline(bold(.(actor)))),x=.5*perc2*w+spacing, y=.94*(1-perc1)*h, font=1, cex=1.2)
@@ -223,15 +232,6 @@ text(lab,x=.5*perc2*w+.5*spacing, y=.30*(1-perc1)*h, font=3, cex=.8)
 dev.off()
 actor_graph
 }
-
-
-
-
-
-
-
-
-
 
 
 
